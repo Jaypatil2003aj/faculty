@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+  <link rel="stylesheet" href="admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js included -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> 
+
+</head>
+<body>
+
+<img src="./logo.png" alt="Logo" class="logo-top-left">
+
+<div class="container">
+  <aside>
+    <div class="top">
+      <div class="logo">
+        <h2>AD<span class="danger">MIN</span></h2>
+      </div>
+      <div class="close" id="close-btn">
+        <span class="material-icons-sharp">close</span>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <a href="#" data-page="Dashboard" class="active">
+        <span class="material-icons-sharp">grid_view</span>
+        <h3>Dashboard</h3>
+      </a>
+      <a href="#" data-page="Department">
+        <span class="material-icons-sharp">apartment</span>
+        <h3>Department</h3>
+      </a>
+      <a href="#" data-page="Leave">
+        <span class="material-icons-sharp">medication_liquid</span>
+        <h3>Leave</h3>
+      </a>
+      <a href="#" data-page="Faculties">
+        <span class="material-icons-sharp">groups</span>
+        <h3>Faculties</h3>
+      </a>
+      <a href="#" data-page="Messages">
+        <span class="material-icons-sharp">mail_outline</span>
+        <h3>Messages</h3>
+        <span id="message-count" class="message-count">0</span>
+      </a>
+      <a href="#" data-page="Leave Management">
+        <span class="material-icons-sharp">manage_accounts</span>
+        <h3>Leave Management</h3>
+      </a>
+      <a href="#" data-page="Settings">
+        <span class="material-icons-sharp">settings</span>
+        <h3>Settings</h3>
+      </a>
+      <a href="#" id="logout-btn">
+        <span class="material-icons-sharp">logout</span>
+        <h3>Logout</h3>
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="date" id="current-date">
+      <!-- Date will be inserted here -->
+    </div>
+
+    <div id="dashboard-section" class="page-section">
+      <h1>Dashboard</h1>
+      <!-- Dashboard Chart Area -->
+      <div class="dashboard-chart">
+        <h2>Faculty Attendance Status</h2>
+        <div class="chart-container">
+          <canvas id="attendancePieChart" style="max-width: 400px;"></canvas>
+    
+          <div class="percentage-stats">
+              <h3 id="present-percent">Present: 0%</h3>
+              <h3 id="absent-percent">Absent: 0%</h3>
+          </div>
+        </div>
+    </div>
+    
+    </div>
+
+    <div id="departments-section" class="page-section" style="display: none;">
+      <h2>Departments</h2>
+      <button id="add-department-btn" class="add-btn">Add Department</button>
+      <div id="departments-list" class="card-container"></div>
+    </div>
+
+    <div id="leave-types-section" class="page-section" style="display: none;">
+      <h2>Apply for Leave</h2>
+      <form id="leave-form" class="leave-form">
+        <input type="text" id="leave-name" placeholder="Name" required>
+        <input type="email" id="leave-email" placeholder="Email ID" required>
+        <textarea id="leave-reason" placeholder="Reason for Leave" required></textarea>
+        <input type="date" id="leave-from" required>
+        <input type="date" id="leave-to" required>
+        <button type="submit">Submit Leave Application</button>
+      </form>
+    </div>
+
+    <div id="faculties-section" class="page-section" style="display: none;">
+      <h2>Faculties</h2>
+      <button id="add-faculty-btn" class="add-btn">Add Faculty</button>
+      <div id="faculties-list" class="faculty-container"></div>
+    </div>
+
+    <div id="messages-section" class="page-section" style="display: none;">
+      <!-- Dynamic Content from JS -->
+    </div>
+
+    <div id="leave-management-section" class="page-section" style="display: none;">
+      <h2>Leave Management</h2>
+      <!-- Future Leave Management Content -->
+    </div>
+
+    <div id="settings-section" class="page-section" style="display: none;">
+      <h2>Settings</h2>
+      <form id="settings-form">
+        <label>Name: <input type="text" id="admin-name" value="Admin"></label><br><br>
+        <label>Email: <input type="email" id="admin-email" value="admin@example.com"></label><br><br>
+        <button type="submit">Save Settings</button>
+      </form>
+    </div>
+  </main>
+
+  <div class="right">
+    <div class="top">
+      <button id="menu-btn">
+        <span class="material-icons-sharp">menu</span>
+      </button>
+      <div class="theme-toggler">
+        <span class="material-icons-sharp active">light_mode</span>
+        <span class="material-icons-sharp">dark_mode</span>
+      </div>
+      <div class="profile">
+        <div class="info">
+          <p>Hey, <b id="user-name">Admin</b></p>
+          <small class="text-muted">Admin</small>
+        </div>
+        <div class="profile-photo">
+          <img src="./Photo 2023.jpg" alt="Profile">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+</html>

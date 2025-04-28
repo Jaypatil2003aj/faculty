@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup</title>
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+<img src="./logo.png" class="logo-top-left" alt="Logo">
+
+<div class="auth-container">
+  <h2>Signup</h2>
+  <form id="signup-form">
+    <input type="text" id="name" placeholder="Name" required><br>
+    <input type="email" id="email" placeholder="Email" required><br>
+    <input type="text" id="department" placeholder="Department" required><br>
+    <input type="password" id="password" placeholder="Password" required><br>
+    
+    <select id="signup-role" required>
+      <option value="" disabled selected>Select Role</option>
+      <option value="admin">Admin</option>
+      <option value="user">User</option>
+    </select><br><br>
+
+    <button type="submit">Signup</button>
+    <p>Already have an account? <a href="login.html">Login</a></p>
+  </form>
+</div>
+
+<script src="signup.js"></script>
+</body>
+</html>
